@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_view_price_selector" model="ir.ui.view">
+        <field name="name">product.template.form.price.selector</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Ajout du Prix spécial juste sous le Prix de vente -->
+            <xpath expr="//field[@name='list_price']" position="after">
+                <label for="price_special" string="Prix spécial"/>
+                <field name="price_special"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

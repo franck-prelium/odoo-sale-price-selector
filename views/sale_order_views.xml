@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_form_view_price_selector" model="ir.ui.view">
+        <field name="name">sale.order.form.price.selector</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Bouton sélecteur de prix après le champ prix unitaire dans les lignes -->
+            <xpath expr="//field[@name='order_line']//list//field[@name='price_unit']" position="after">
+                <button name="action_open_price_selector"
+                        type="object"
+                        icon="fa-tag"
+                        title="Sélectionner le type de prix"
+                        class="btn-link p-0 ms-1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

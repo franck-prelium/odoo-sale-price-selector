@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_price_selector_form" model="ir.ui.view">
+        <field name="name">sale.price.selector.form</field>
+        <field name="model">sale.price.selector</field>
+        <field name="arch" type="xml">
+            <form string="Sélectionner le type de prix">
+                <sheet>
+                    <field name="sale_line_id" invisible="1"/>
+                    <group>
+                        <field name="product_id" readonly="1"/>
+                    </group>
+                    <group string="Prix disponibles">
+                        <field name="price_catalogue" readonly="1" string="1 — Prix catalogue"/>
+                        <field name="price_special"   readonly="1" string="2 — Prix spécial"/>
+                        <field name="price_standard"  readonly="1" string="3 — Prix standard"/>
+                        <field name="price_partner"   readonly="1" string="4 — Prix partenaire"/>
+                    </group>
+                    <group string="Sélection">
+                        <field name="price_type" string="Type de prix"/>
+                        <field name="manual_price"
+                               string="Prix à appliquer"
+                               invisible="price_type != 'manual'"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_apply"
+                            type="object"
+                            string="Appliquer"
+                            class="btn-primary"/>
+                    <button string="Annuler"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
